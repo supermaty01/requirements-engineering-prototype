@@ -1,0 +1,3 @@
+// Initial variables
+
+let userStories = [];
