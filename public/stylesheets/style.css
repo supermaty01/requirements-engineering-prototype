@@ -7,3 +7,15 @@ body {
     margin: 0;
     padding: 0;
 }
+
+.btn-primary,
+.swal2-styled.swal2-confirm {
+    background-color: #1f77ad !important;
+    border-color: #1f77ad !important;
+}
+
+.btn-primary:hover,
+.swal2-styled.swal2-confirm:hover {
+    background-color: #258ed0 !important;
+    border-color: #258ed0 !important;
+}
