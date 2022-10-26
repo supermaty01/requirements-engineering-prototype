@@ -62,5 +62,19 @@ const dynamicRelationshipsInfo = {
             alreadyExists: 'This requirement has already been identified!'
         }
     },
+    'SOFTWARE_ARCHITECT-DESIGNS-SOFTWARE_SYSTEM': {
+        fields: ['name', 'programming_language', 'framework_name', 'environment_name', 'architecture_name'],
+        messages: {
+            success: 'Software System has been designed successfully!',
+            alreadyExists: 'Software System has already been designed!',
+        }
+    },
+    'SOFTWARE_ARCHITECT-DEFINES-SOFTWARE_ELEMENT': {
+        fields: ['name', 'software_system_name', 'user_story_id', 'version'],
+        messages: {
+            success: 'Software Element has been defined successfully!',
+            alreadyExists: 'Software Element has already been defined!',
+        }
+    },
 }
 

@@ -7983,7 +7983,8 @@
                 <button type="button" class="btn btn-danger" data-dismiss="modal">Cancel</button>
                 <div>
                     <button type="button" class="btn btn-secondary px-3" onclick="clearFields()">Clear</button>
-                    <button type="button" class="btn btn-primary px-3" onclick="registerSoftwareSystem()">Register</button>
+                    <button type="button" class="btn btn-primary px-3"
+                        onclick="registerSoftwareSystem()">Register</button>
                 </div>
             </div>
         </div>
@@ -8024,7 +8025,8 @@
                 <button type="button" class="btn btn-danger" data-dismiss="modal">Cancel</button>
                 <div>
                     <button type="button" class="btn btn-secondary px-3" onclick="clearFields()">Clear</button>
-                    <button type="button" class="btn btn-primary px-3" onclick="registerQualityAnalyst()">Register</button>
+                    <button type="button" class="btn btn-primary px-3"
+                        onclick="registerQualityAnalyst()">Register</button>
                 </div>
             </div>
         </div>
@@ -8065,7 +8067,8 @@
                 <button type="button" class="btn btn-danger" data-dismiss="modal">Cancel</button>
                 <div>
                     <button type="button" class="btn btn-secondary px-3" onclick="clearFields()">Clear</button>
-                    <button type="button" class="btn btn-primary px-3" onclick="registerQualityManager()">Register</button>
+                    <button type="button" class="btn btn-primary px-3"
+                        onclick="registerQualityManager()">Register</button>
                 </div>
             </div>
         </div>
@@ -8147,7 +8150,8 @@
                 <button type="button" class="btn btn-danger" data-dismiss="modal">Cancel</button>
                 <div>
                     <button type="button" class="btn btn-secondary px-3" onclick="clearFields()">Clear</button>
-                    <button type="button" class="btn btn-primary px-3" onclick="registerSoftwareArchitect()">Register</button>
+                    <button type="button" class="btn btn-primary px-3"
+                        onclick="registerSoftwareArchitect()">Register</button>
                 </div>
             </div>
         </div>
@@ -8188,7 +8192,8 @@
                 <button type="button" class="btn btn-danger" data-dismiss="modal">Cancel</button>
                 <div>
                     <button type="button" class="btn btn-secondary px-3" onclick="clearFields()">Clear</button>
-                    <button type="button" class="btn btn-primary px-3" onclick="registerProductOwner()">Register</button>
+                    <button type="button" class="btn btn-primary px-3"
+                        onclick="registerProductOwner()">Register</button>
                 </div>
             </div>
         </div>
@@ -8254,7 +8259,8 @@
                         <div class="row mt-2">
                             <div class="col-6">
                                 <label for="stakeholder_name">Stakeholder name*</label>
-                                <select class="form-control" name="stakeholder_name" id="stakeholder_name" required></select>
+                                <select class="form-control" name="stakeholder_name" id="stakeholder_name"
+                                    required></select>
                             </div>
                             <div class="col-6">
                                 <label for="user_story_id">User Story ID*</label>
@@ -8264,14 +8270,15 @@
                         <div class="row mt-2">
                             <div class="col-6">
                                 <label for="software_system_name">Software System Name*</label>
-                                <select class="form-control" name="software_system_name" id="software_system_name" required></select>
+                                <select class="form-control" name="software_system_name" id="software_system_name"
+                                    required></select>
                             </div>
                             <div class="col-6">
-                                <label for="type">type*</label>
+                                <label for="type">Type*</label>
                                 <select class="form-control" name="type" id="type" required>
-                                    <option value="" selected disabled>Select an option...</option>
-                                    <option value="functional">FUNCTIONAL</option>
-                                    <option value="non-functional">NON-FUNCTIONAL</option>
+                                    <option value="" selected hidden>Select an option...</option>
+                                    <option value="FUNCTIONAL">FUNCTIONAL</option>
+                                    <option value="NON-FUNCTIONAL">NON-FUNCTIONAL</option>
                                 </select>
                             </div>
                         </div>
@@ -8282,7 +8289,143 @@
                 <button type="button" class="btn btn-danger" data-dismiss="modal">Cancel</button>
                 <div>
                     <button type="button" class="btn btn-secondary px-3" onclick="clearFields()">Clear</button>
-                    <button type="button" class="btn btn-primary px-3" onclick="registerStakeholder()">Register</button>
+                    <button type="button" class="btn btn-primary px-3" onclick="identifyRequirement()">Identify</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="modal fade" id="SOFTWARE_ARCHITECT-DESIGNS-SOFTWARE_SYSTEM-modal" tabindex="-1" role="dialog">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Designs Software System</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <div class="col-12">
+                        <div class="row mt-2">
+                            <div class="col-6">
+                                <label for="software_system_name">Name*</label>
+                                <select class="form-control" name="name" id="software_system_name" required></select>
+                            </div>
+                            <div class="col-6">
+                                <label for="programming_language">Programming Language*</label>
+                                <input type="text" class="form-control" id="programming_language"
+                                    name="programming_language" required>
+                            </div>
+                        </div>
+                        <div class="row mt-2">
+                            <div class="col-6">
+                                <label for="framework_name">Framework Name*</label>
+                                <input type="text" class="form-control" id="framework_name" name="framework_name"
+                                    required>
+                            </div>
+                            <div class="col-6">
+                                <label for="environment_name">Environment Name*</label>
+                                <input type="text" class="form-control" id="environment_name" name="environment_name"
+                                    required>
+                            </div>
+                        </div>
+                        <div class="row mt-2">
+                            <div class="col-6">
+                                <label for="architecture_name">Architecture Name*</label>
+                                <input type="text" class="form-control" id="architecture_name" name="architecture_name"
+                                    required>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer justify-content-between">
+                <button type="button" class="btn btn-danger" data-dismiss="modal">Cancel</button>
+                <div>
+                    <button type="button" class="btn btn-secondary px-3" onclick="clearFields()">Clear</button>
+                    <button type="button" class="btn btn-primary px-3" onclick="designSoftwareSystem()">Design</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="modal fade" id="SOFTWARE_ARCHITECT-DEFINES-SOFTWARE_ELEMENT-modal" tabindex="-1" role="dialog">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Defines Software Element</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <div class="col-12">
+                        <div class="row mt-2">
+                            <div class="col-6">
+                                <label for="name">Name*</label>
+                                <input type="text" class="form-control" id="name" name="name" required>
+                            </div>
+                            <div class="col-6">
+                                <label for="software_system_name">Software System Name*</label>
+                                <select class="form-control" name="software_system_name" id="software_system_name"
+                                    required></select>
+                            </div>
+                        </div>
+                        <div class="row mt-2">
+                            <div class="col-6">
+                                <label for="user_story_id">User Story ID*</label>
+                                <select class="form-control" name="user_story_id" id="user_story_id" required></select>
+                            </div>
+                            <div class="col-6">
+                                <label for="version">Version*</label>
+                                <input type="text" class="form-control" id="version" name="version" required>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer justify-content-between">
+                <button type="button" class="btn btn-danger" data-dismiss="modal">Cancel</button>
+                <div>
+                    <button type="button" class="btn btn-secondary px-3" onclick="clearFields()">Clear</button>
+                    <button type="button" class="btn btn-primary px-3" onclick="defineSoftwareElement()">Define</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="modal fade" id="DEVELOPER-DEVELOPS-SOFTWARE_ELEMENT-modal" tabindex="-1" role="dialog">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Develops Software System</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <div class="col-12">
+                        <div class="row mt-2">
+                            <div class="col-6">
+                                <label for="software_system_name">Software System Name*</label>
+                                <select class="form-control" name="software_system_name" id="software_system_name" required></select>
+                            </div>
+                            <div class="col-6">
+                                <label for="software_element_name">Name*</label>
+                                <select class="form-control" name="name" id="software_system_name" required></select>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer justify-content-between">
+                <button type="button" class="btn btn-danger" data-dismiss="modal">Cancel</button>
+                <div>
+                    <button type="button" class="btn btn-secondary px-3" onclick="clearFields()">Clear</button>
+                    <button type="button" class="btn btn-primary px-3" onclick="designSoftwareSystem()">Design</button>
                 </div>
             </div>
         </div>
@@ -8303,6 +8446,42 @@
             $(this).toggleClass('is-invalid', false);
         }
     });
+
+    $('.modal').on('show.bs.modal', function () {
+        clearFields();
+    });
+
+    // Add values to selects
+
+    $('.modal').on('show.bs.modal', function () {
+        const stakeholders = JSON.parse(localStorage.getItem('stakeholders'));
+        const userStories = JSON.parse(localStorage.getItem('userStories'));
+        const softwareSystems = JSON.parse(localStorage.getItem('softwareSystems'));
+
+        let stakeholdersHtml = '<option value="" selected hidden>Select an option...</option>';
+        let userStoriesHtml = '<option value="" selected hidden>Select an option...</option>';
+        let softwareSystemsHtml = '<option value="" selected hidden>Select an option...</option>';
+        if (stakeholders && stakeholders.length) {
+            stakeholders.forEach((stakeholder) => {
+                stakeholdersHtml += `<option value="${stakeholder.name}">${stakeholder.name}</option>`;
+            });
+        }
+        if (userStories && userStories.length) {
+            userStories.forEach((userStory) => {
+                userStoriesHtml += `<option value="${userStory.id}">${userStory.id}</option>`;
+            });
+        }
+        if (softwareSystems && softwareSystems.length) {
+            softwareSystems.forEach((softwareSystem) => {
+                softwareSystemsHtml +=
+                    `<option value="${softwareSystem.name}">${softwareSystem.name}</option>`;
+            });
+        }
+
+        $(`#${this.id} #stakeholder_name`).html(stakeholdersHtml);
+        $(`#${this.id} #user_story_id`).html(userStoriesHtml);
+        $(`#${this.id} #software_system_name`).html(softwareSystemsHtml);
+    })
 
     function clearFields() {
         $('input').val('');
@@ -8332,8 +8511,9 @@
     function newObject(relationship) {
         const object = {};
         for (const fieldName of dynamicRelationshipsInfo[relationship].fields) {
-            object[fieldName] = $(`${relationship}-modal>input[name="${fieldName}"]`).val();
+            object[fieldName] = $(`#${relationship}-modal [name="${fieldName}"]`).val();
         }
+        return object;
     }
 
     function showError(message) {
@@ -8360,16 +8540,17 @@
         }
         const newUserStory = newObject(relationship);
         // Get list of required items
-        const userStories = localStorage.getItem('userStories');
+        const userStories = JSON.parse(localStorage.getItem('userStories'));
+        console.log(userStories)
         // Fields used as primary key
-        if (userStories && userStories.find((us) => us.id === newUserStory.id)) {
+        if (userStories && userStories.find((obj) => obj.id === newUserStory.id)) {
             showError(dynamicRelationshipsInfo[relationship].messages.alreadyExists);
         } else {
             // Check if key already exists otherwise create it with new object
             if (userStories && userStories.length) {
-                localStorage.setItem('userStories', [...userStories, newUserStory])
+                localStorage.setItem('userStories', JSON.stringify([...userStories, newUserStory]));
             } else {
-                localStorage.setItem('userStories', [newUserStory])
+                localStorage.setItem('userStories', JSON.stringify([newUserStory]));
             }
             $(`#${relationship}-modal`).modal('hide');
             clearFields();
@@ -8385,16 +8566,16 @@
         }
         const newSoftwareSystem = newObject(relationship);
         // Get list of required items
-        const softwareSystems = localStorage.getItem('softwareSystems');
+        const softwareSystems = JSON.parse(localStorage.getItem('softwareSystems'));
         // Fields used as primary key
-        if (softwareSystems && softwareSystems.find((us) => us.name === newSoftwareSystem.name)) {
+        if (softwareSystems && softwareSystems.find((obj) => obj.name === newSoftwareSystem.name)) {
             showError(dynamicRelationshipsInfo[relationship].messages.alreadyExists);
         } else {
             // Check if key already exists otherwise create it with new object
             if (softwareSystems && softwareSystems.length) {
-                localStorage.setItem('softwareSystems', [...softwareSystems, newSoftwareSystem])
+                localStorage.setItem('softwareSystems', JSON.stringify([...softwareSystems, newSoftwareSystem]));
             } else {
-                localStorage.setItem('softwareSystems', [newSoftwareSystem])
+                localStorage.setItem('softwareSystems', JSON.stringify([newSoftwareSystem]));
             }
             $(`#${relationship}-modal`).modal('hide');
             clearFields();
@@ -8410,16 +8591,16 @@
         }
         const newQualityAnalyst = newObject(relationship);
         // Get list of required items
-        const qualityAnalysts = localStorage.getItem('qualityAnalysts');
+        const qualityAnalysts = JSON.parse(localStorage.getItem('qualityAnalysts'));
         // Fields used as primary key
-        if (qualityAnalysts && qualityAnalysts.find((us) => us.id === newQualityAnalyst.id)) {
+        if (qualityAnalysts && qualityAnalysts.find((obj) => obj.id === newQualityAnalyst.id)) {
             showError(dynamicRelationshipsInfo[relationship].messages.alreadyExists);
         } else {
             // Check if key already exists otherwise create it with new object
             if (qualityAnalysts && qualityAnalysts.length) {
-                localStorage.setItem('qualityAnalysts', [...qualityAnalysts, newQualityAnalyst])
+                localStorage.setItem('qualityAnalysts', JSON.stringify([...qualityAnalysts, newQualityAnalyst]))
             } else {
-                localStorage.setItem('qualityAnalysts', [newQualityAnalyst])
+                localStorage.setItem('qualityAnalysts', JSON.stringify([newQualityAnalyst]))
             }
             $(`#${relationship}-modal`).modal('hide');
             clearFields();
@@ -8435,16 +8616,16 @@
         }
         const newQualityManager = newObject(relationship);
         // Get list of required items
-        const qualityManagers = localStorage.getItem('qualityManagers');
+        const qualityManagers = JSON.parse(localStorage.getItem('qualityManagers'));
         // Fields used as primary key
-        if (qualityManagers && qualityManagers.find((us) => us.id === newQualityManager.id)) {
+        if (qualityManagers && qualityManagers.find((obj) => obj.id === newQualityManager.id)) {
             showError(dynamicRelationshipsInfo[relationship].messages.alreadyExists);
         } else {
             // Check if key already exists otherwise create it with new object
             if (qualityManagers && qualityManagers.length) {
-                localStorage.setItem('qualityManagers', [...qualityManagers, newQualityManager])
+                localStorage.setItem('qualityManagers', JSON.stringify([...qualityManagers, newQualityManager]))
             } else {
-                localStorage.setItem('qualityManagers', [newQualityManager])
+                localStorage.setItem('qualityManagers', JSON.stringify([newQualityManager]))
             }
             $(`#${relationship}-modal`).modal('hide');
             clearFields();
@@ -8460,16 +8641,16 @@
         }
         const newDeveloper = newObject(relationship);
         // Get list of required items
-        const developers = localStorage.getItem('developers');
+        const developers = JSON.parse(localStorage.getItem('developers'));
         // Fields used as primary key
-        if (developers && developers.find((us) => us.id === newDeveloper.id)) {
+        if (developers && developers.find((obj) => obj.id === newDeveloper.id)) {
             showError(dynamicRelationshipsInfo[relationship].messages.alreadyExists);
         } else {
             // Check if key already exists otherwise create it with new object
             if (developers && developers.length) {
-                localStorage.setItem('developers', [...developers, newDeveloper])
+                localStorage.setItem('developers', JSON.stringify([...developers, newDeveloper]))
             } else {
-                localStorage.setItem('developers', [newDeveloper])
+                localStorage.setItem('developers', JSON.stringify([newDeveloper]))
             }
             $(`#${relationship}-modal`).modal('hide');
             clearFields();
@@ -8485,16 +8666,18 @@
         }
         const newSoftwareArchitect = newObject(relationship);
         // Get list of required items
-        const softwareArchitects = localStorage.getItem('softwareArchitects');
+        const softwareArchitects = JSON.parse(localStorage.getItem('softwareArchitects'));
         // Fields used as primary key
-        if (softwareArchitects && softwareArchitects.find((us) => us.id === newSoftwareArchitect.id)) {
+        if (softwareArchitects && softwareArchitects.find((obj) => obj.id === newSoftwareArchitect.id)) {
             showError(dynamicRelationshipsInfo[relationship].messages.alreadyExists);
         } else {
             // Check if key already exists otherwise create it with new object
             if (softwareArchitects && softwareArchitects.length) {
-                localStorage.setItem('softwareArchitects', [...softwareArchitects, newSoftwareArchitect])
+                localStorage.setItem('softwareArchitects', JSON.stringify([...softwareArchitects,
+                    newSoftwareArchitect
+                ]))
             } else {
-                localStorage.setItem('softwareArchitects', [newSoftwareArchitect])
+                localStorage.setItem('softwareArchitects', JSON.stringify([newSoftwareArchitect]))
             }
             $(`#${relationship}-modal`).modal('hide');
             clearFields();
@@ -8510,16 +8693,16 @@
         }
         const newProductOwner = newObject(relationship);
         // Get list of required items
-        const productOwners = localStorage.getItem('productOwners');
+        const productOwners = JSON.parse(localStorage.getItem('productOwners'));
         // Fields used as primary key
-        if (productOwners && productOwners.find((us) => us.id === newProductOwner.id)) {
+        if (productOwners && productOwners.find((obj) => obj.id === newProductOwner.id)) {
             showError(dynamicRelationshipsInfo[relationship].messages.alreadyExists);
         } else {
             // Check if key already exists otherwise create it with new object
             if (productOwners && productOwners.length) {
-                localStorage.setItem('productOwners', [...productOwners, newProductOwner])
+                localStorage.setItem('productOwners', JSON.stringify([...productOwners, newProductOwner]))
             } else {
-                localStorage.setItem('productOwners', [newProductOwner])
+                localStorage.setItem('productOwners', JSON.stringify([newProductOwner]))
             }
             $(`#${relationship}-modal`).modal('hide');
             clearFields();
@@ -8535,16 +8718,103 @@
         }
         const newStakeholder = newObject(relationship);
         // Get list of required items
-        const stakeholders = localStorage.getItem('stakeholders');
+        const stakeholders = JSON.parse(localStorage.getItem('stakeholders'));
         // Fields used as primary key
-        if (stakeholders && stakeholders.find((us) => us.id === newStakeholder.id)) {
+        if (stakeholders && stakeholders.find((obj) => obj.id === newStakeholder.id)) {
             showError(dynamicRelationshipsInfo[relationship].messages.alreadyExists);
         } else {
             // Check if key already exists otherwise create it with new object
             if (stakeholders && stakeholders.length) {
-                localStorage.setItem('stakeholders', [...stakeholders, newStakeholder])
+                localStorage.setItem('stakeholders', JSON.stringify([...stakeholders, newStakeholder]))
             } else {
-                localStorage.setItem('stakeholders', [newStakeholder])
+                localStorage.setItem('stakeholders', JSON.stringify([newStakeholder]))
+            }
+            $(`#${relationship}-modal`).modal('hide');
+            clearFields();
+            showSuccess(dynamicRelationshipsInfo[relationship].messages.success);
+        }
+    }
+
+    function identifyRequirement() {
+        const relationship = 'PRODUCT_OWNER-IDENTIFIES-REQUIREMENT';
+        const invalidFields = checkFields(relationship);
+        if (invalidFields) {
+            return;
+        }
+        const newRequirement = newObject(relationship);
+        // Get list of required items
+        const requirements = JSON.parse(localStorage.getItem('requirements'));
+        // Fields used as primary key
+        if (requirements && requirements.find((obj) => {
+                obj.stakeholder_name === newRequirement.stakeholder_name &&
+                    obj.user_story_id === newRequirement.user_story_id &&
+                    obj.software_system_name === newRequirement.software_system_name
+            })) {
+            showError(dynamicRelationshipsInfo[relationship].messages.alreadyExists);
+        } else {
+            // Check if key already exists otherwise create it with new object
+            if (requirements && requirements.length) {
+                localStorage.setItem('requirements', JSON.stringify([...requirements, newRequirement]))
+            } else {
+                localStorage.setItem('requirements', JSON.stringify([newRequirement]))
+            }
+            $(`#${relationship}-modal`).modal('hide');
+            clearFields();
+            showSuccess(dynamicRelationshipsInfo[relationship].messages.success);
+        }
+    }
+
+    function designSoftwareSystem() {
+        const relationship = 'SOFTWARE_ARCHITECT-DESIGNS-SOFTWARE_SYSTEM';
+        const invalidFields = checkFields(relationship);
+        if (invalidFields) {
+            return;
+        }
+        const newSoftwareSystem = newObject(relationship);
+        // Get list of required items
+        const softwareSystems = JSON.parse(localStorage.getItem('softwareSystems'));
+
+        const existingSoftwareSystem = softwareSystems.find((obj) => obj.name === newSoftwareSystem.name);
+        if (existingSoftwareSystem.programming_language ||
+            existingSoftwareSystem.framework_name ||
+            existingSoftwareSystem.environment_name ||
+            existingSoftwareSystem.architecture_name) {
+            showError(dynamicRelationshipsInfo[relationship].messages.alreadyExists);
+        } else {
+            localStorage.setItem('softwareSystems', JSON.stringify(
+                softwareSystems.map((obj) => {
+                    if (obj.name === newSoftwareSystem.name) {
+                        return newSoftwareSystem;
+                    } else {
+                        return obj;
+                    }
+                })
+            ));
+            $(`#${relationship}-modal`).modal('hide');
+            clearFields();
+            showSuccess(dynamicRelationshipsInfo[relationship].messages.success);
+        }
+    }
+
+    function defineSoftwareElement() {
+        const relationship = 'SOFTWARE_ARCHITECT-DEFINES-SOFTWARE_ELEMENT';
+        const invalidFields = checkFields(relationship);
+        if (invalidFields) {
+            return;
+        }
+        const newSoftwareElement = newObject(relationship);
+        // Get list of required items
+        const softwareElements = JSON.parse(localStorage.getItem('softwareElements'));
+        // Fields used as primary key
+        if (softwareElements && softwareElements.find((obj) => obj.name === newSoftwareElement.name &&
+                obj.software_system_name === newSoftwareElement.software_system_name)) {
+            showError(dynamicRelationshipsInfo[relationship].messages.alreadyExists);
+        } else {
+            // Check if key already exists otherwise create it with new object
+            if (softwareElements && softwareElements.length) {
+                localStorage.setItem('softwareElements', JSON.stringify([...softwareElements, newSoftwareElement]))
+            } else {
+                localStorage.setItem('softwareElements', JSON.stringify([newSoftwareElement]))
             }
             $(`#${relationship}-modal`).modal('hide');
             clearFields();
