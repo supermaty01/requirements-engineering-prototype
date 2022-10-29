@@ -19,3 +19,7 @@ body {
     background-color: #258ed0 !important;
     border-color: #258ed0 !important;
 }
+
+.modal-open {
+    position: absolute;
+}
