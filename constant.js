@@ -85,3 +85,49 @@ const dynamicRelationshipsInfo = {
     },
 }
 
+
+const classConceptsInfo = {
+    'PRODUCT_OWNER': {
+        name: 'Product Owners',
+        container: 'productOwners',
+        attributes: ['id', 'name', 'email'],
+        attributesNames: ['ID', 'Name', 'Email'],
+    },
+    'STAKEHOLDER': {
+        name: 'Stakeholders',
+        container: 'stakeholders',
+        attributes: ['id', 'name', 'email', 'company_name'],
+        attributesNames: ['ID', 'Name', 'Email', 'Company Name'],
+    },
+    'SOFTWARE_ARCHITECT': {
+        name: 'Software Architects',
+        container: 'softwareArchitects',
+        attributes: ['id', 'name', 'email'],
+        attributesNames: ['ID', 'Name', 'Email'],
+    },
+    'DEVELOPER': {
+        name: 'Developers',
+        container: 'developers',
+        attributes: ['id', 'name', 'email'],
+        attributesNames: ['ID', 'Name', 'Email'],
+    },
+    'QUALITY_MANAGER': {
+        name: 'Quality Managers',
+        container: 'qualityManagers',
+        attributes: ['id', 'name', 'email'],
+        attributesNames: ['ID', 'Name', 'Email'],
+    },
+    'QUALITY_ANALYST': {
+        name: 'Quality Analysts',
+        container: 'qualityAnalysts',
+        attributes: ['id', 'name', 'email'],
+        attributesNames: ['ID', 'Name', 'Email'],
+    },
+    'SOFTWARE_SYSTEM': {
+        name: 'Software Systems',
+        container: 'softwareSystems',
+        attributes: ['id', 'version', 'name', 'programming_language', 'framework', 'environment', 'architecture'],
+        attributesNames: ['ID', 'Version', 'Name', 'Programming Language', 'Framework', 'Environment', 'Architecture'],
+    },
+}
+

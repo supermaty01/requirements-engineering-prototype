@@ -23,3 +23,13 @@ body {
 .modal-open {
     position: absolute;
 }
+
+.dynamic-relationship {
+    cursor: pointer;
+}
+
+.pagination-rounded .page-link {
+    border-radius: 30px !important;
+    margin: 0 3px;
+    border: none;
+}
