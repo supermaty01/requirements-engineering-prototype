@@ -103,6 +103,12 @@ const dynamicRelationshipsInfo = {
             alreadyExists: 'Test Case has already been designed!',
         }
     },
+    'QUALITY_ANALYST-EXECUTES-TEST_CASE': {
+        fields: ['id', 'start_date', 'end_date', 'result'],
+        messages: {
+            success: 'Test Case has been executed successfully!',
+        }
+    },
 }
 
 
@@ -176,8 +182,8 @@ const classConceptsInfo = {
     'TEST_CASE': {
         name: 'Test Cases',
         container: 'testCases',
-        attributes: ['id', 'software_element_id', 'level', 'version', 'purpose', 'overview', 'description', 'input', 'expected_output'],
-        attributesNames: ['ID', 'Software System ID', 'Level', 'Version', 'Purpose', 'Overview', 'Description', 'Input', 'Expected Output'],
+        attributes: ['id', 'software_element_id', 'level', 'version', 'purpose', 'overview', 'description', 'input', 'expected_output', 'start_date', 'end_date', 'result'],
+        attributesNames: ['ID', 'Software System ID', 'Level', 'Version', 'Purpose', 'Overview', 'Description', 'Input', 'Expected Output', 'Start Date', 'End Date', 'Result'],
     },
 }
 

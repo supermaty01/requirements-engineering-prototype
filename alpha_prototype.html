@@ -3594,7 +3594,7 @@
                 <path
                     d="M 1298 655.5 L 1348 655.5 C 1356.28 655.5 1363 648.78 1363 640.5 C 1363 632.22 1356.28 625.5 1348 625.5 L 1298 625.5 C 1289.72 625.5 1283 632.22 1283 640.5 C 1283 648.78 1289.72 655.5 1298 655.5"
                     fill="#ffff00" stroke="#000000" stroke-width="3" stroke-miterlimit="10" stroke-dasharray="9 9"
-                    pointer-events="none" />
+                    pointer-events="all" class="dynamic-relationship" id="QUALITY_ANALYST-EXECUTES-TEST_CASE" />
                 <g transform="translate(-0.5 -0.5)">
                     <switch>
                         <foreignObject pointer-events="none" width="100%" height="100%"
@@ -7831,6 +7831,96 @@
         </div>
     </div>
 </div>
+<div class="modal fade" id="QUALITY_ANALYST-EXECUTES-TEST_CASE-modal" tabindex="-1" role="dialog">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Executes Test Case</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <div class="col-12">
+                        <div class="row mt-2">
+                            <div class="col-6">
+                                <label for="test_case_id">ID*</label>
+                                <select class="form-control" name="id" id="test_case_id"
+                                    required></select>
+                            </div>
+                            <div class="col-6">
+                                <label for="result">Result*</label>
+                                <select class="form-control" name="result" id="result" required>
+                                    <option value="" selected hidden>Select an option...</option>
+                                    <option value="PASSED">PASSED</option>
+                                    <option value="FAILED">FAILED</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="row mt-2">
+                            <div class="col-6">
+                                <label for="start_date">Start Date*</label>
+                                <input type="date" class="form-control" id="start_date" name="start_date" required>
+                            </div>
+                            <div class="col-6">
+                                <label for="end_date">End Date*</label>
+                                <input type="date" class="form-control" id="end_date" name="end_date" required>
+                            </div>
+                        </div>
+                        <div class="row mt-2">
+                            <div class="col-6">
+                                <label for="purpose">Purpose*</label>
+                                <input type="text" class="form-control" id="purpose" name="purpose" required disabled>
+                            </div>
+                            <div class="col-6">
+                                <label for="overview">Overview*</label>
+                                <input type="text" class="form-control" id="overview" name="overview" required disabled>
+                            </div>
+                        </div>
+                        <div class="row mt-2">
+                            <div class="col-6">
+                                <label for="description">Description*</label>
+                                <input type="text" class="form-control" id="description" name="description" required disabled>
+                            </div>
+                            <div class="col-6">
+                                <label for="input">Input*</label>
+                                <input type="text" class="form-control" id="input" name="input" required disabled>
+                            </div>
+                        </div>
+                        <div class="row mt-2">
+                            <div class="col-6">
+                                <label for="expected_output">Expected Output*</label>
+                                <input type="text" class="form-control" id="expected_output" name="expected_output"
+                                    required disabled>
+                            </div>
+                            <div class="col-6">
+                                <label for="level">Level*</label>
+                                <select class="form-control" name="level" id="level" required disabled>
+                                    <option value="" selected hidden>Select an option...</option>
+                                    <option value="UNIT TESTING">UNIT TESTING</option>
+                                    <option value="SYSTEM TESTING">SYSTEM TESTING</option>
+                                    <option value="INTEGRATION TESTING">INTEGRATION TESTING</option>
+                                    <option value="SYSTEM INTEGRATION TESTING">SYSTEM INTEGRATION TESTING</option>
+                                    <option value="USER ACCEPTANCE TESTING">USER ACCEPTANCE TESTING</option>
+                                    <option value="PRODUCT VERIFICATION TESTING">PRODUCT VERIFICATION TESTING</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer justify-content-between">
+                <button type="button" class="btn btn-danger" data-dismiss="modal">Cancel</button>
+                <div>
+                    <button type="button" class="btn btn-secondary px-3" onclick="clearFields()">Clear</button>
+                    <button type="button" class="btn btn-primary px-3"
+                        onclick="executeTestCase()">Execute</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 <div class="modal fade" id="class-concept-modal" tabindex="-1" role="dialog">
     <div class="modal-dialog modal-lg" role="document">
         <div class="modal-content">
@@ -7921,11 +8011,13 @@
         const userStories = JSON.parse(localStorage.getItem('userStories'));
         const softwareSystems = JSON.parse(localStorage.getItem('softwareSystems'));
         const softwareElements = JSON.parse(localStorage.getItem('softwareElements'));
+        const testCases = JSON.parse(localStorage.getItem('testCases'));
 
         let stakeholdersHtml = '<option value="" selected hidden>Select an option...</option>';
         let userStoriesHtml = '<option value="" selected hidden>Select an option...</option>';
         let softwareSystemsHtml = '<option value="" selected hidden>Select an option...</option>';
         let softwareElementsHtml = '<option value="" selected hidden>Select an option...</option>';
+        let testCasesHtml = '<option value="" selected hidden>Select an option...</option>';
         if (stakeholders && stakeholders.length) {
             stakeholders.forEach((stakeholder) => {
                 stakeholdersHtml += `<option value="${stakeholder.id}">${stakeholder.id}</option>`;
@@ -7948,11 +8040,18 @@
                     `<option value="${softwareElement.id}">${softwareElement.id}</option>`;
             });
         }
+        if (testCases && testCases.length) {
+            testCases.forEach((testCase) => {
+                testCasesHtml +=
+                    `<option value="${testCase.id}">${testCase.id}</option>`;
+            });
+        }
 
         $(`#${this.id} #stakeholder_id`).html(stakeholdersHtml);
         $(`#${this.id} #user_story_id`).html(userStoriesHtml);
         $(`#${this.id} #software_system_id`).html(softwareSystemsHtml);
         $(`#${this.id} #software_element_id`).html(softwareElementsHtml);
+        $(`#${this.id} #test_case_id`).html(testCasesHtml);
     });
 
     // Add value to disabled fields
@@ -7962,6 +8061,17 @@
         const selectedSoftwareElement = softwareElements.find((obj) => obj.id === $(this).val());
         $('#DEVELOPER-DEVELOPS-SOFTWARE_ELEMENT-modal #name').val(selectedSoftwareElement.name);
         $('#DEVELOPER-DEVELOPS-SOFTWARE_ELEMENT-modal #description').val(selectedSoftwareElement.description);
+    });
+
+    $('#QUALITY_ANALYST-EXECUTES-TEST_CASE-modal #test_case_id').change(function () {
+        const testCases = JSON.parse(localStorage.getItem('testCases'));
+        const selectedTestCase = testCases.find((obj) => obj.id === $(this).val());
+        $('#QUALITY_ANALYST-EXECUTES-TEST_CASE-modal #purpose').val(selectedTestCase.purpose);
+        $('#QUALITY_ANALYST-EXECUTES-TEST_CASE-modal #overview').val(selectedTestCase.overview);
+        $('#QUALITY_ANALYST-EXECUTES-TEST_CASE-modal #description').val(selectedTestCase.description);
+        $('#QUALITY_ANALYST-EXECUTES-TEST_CASE-modal #input').val(selectedTestCase.input);
+        $('#QUALITY_ANALYST-EXECUTES-TEST_CASE-modal #expected_output').val(selectedTestCase.expected_output);
+        $('#QUALITY_ANALYST-EXECUTES-TEST_CASE-modal #level').val(selectedTestCase.level);
     });
 
     function clearFields() {
@@ -8152,6 +8262,34 @@
                 if (obj.id === newSoftwareElement.id) {
                     return {
                         ...newSoftwareElement,
+                        ...obj
+                    };
+                } else {
+                    return obj;
+                }
+            })
+        ));
+        $(`#${relationship}-modal`).modal('hide');
+        clearFields();
+        showSuccess(dynamicRelationshipsInfo[relationship].messages.success);
+    }
+
+    function executeTestCase() {
+        const relationship = 'QUALITY_ANALYST-EXECUTES-TEST_CASE';
+        const invalidFields = checkFields(relationship);
+        if (invalidFields) {
+            return;
+        }
+        const newTestCase = newObject(relationship);
+        // Get list of required items
+        const testCases = JSON.parse(localStorage.getItem('testCases'));
+
+        const existingTestCase = testCases.find((obj) => obj.id === newTestCase.id);
+        localStorage.setItem('testCases', JSON.stringify(
+            testCases.map((obj) => {
+                if (obj.id === newTestCase.id) {
+                    return {
+                        ...newTestCase,
                         ...obj
                     };
                 } else {
