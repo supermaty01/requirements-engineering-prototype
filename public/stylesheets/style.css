@@ -24,6 +24,6 @@ body {
     position: absolute;
 }
 
-.dynamic-relationship {
+.dynamic-relationship, .class-concept {
     cursor: pointer;
 }

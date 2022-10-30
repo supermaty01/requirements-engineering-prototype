@@ -56,7 +56,7 @@ const dynamicRelationshipsInfo = {
         }
     },
     'PRODUCT_OWNER-IDENTIFIES-REQUIREMENT': {
-        fields: ['stakeholder_id', 'user_story_id', 'software_system_id', 'type'],
+        fields: ['id', 'stakeholder_id', 'user_story_id', 'software_system_id', 'type'],
         messages: {
             success: 'Requirement has been identified successfully!',
             alreadyExists: 'This requirement has already been identified!'
@@ -80,7 +80,27 @@ const dynamicRelationshipsInfo = {
         fields: ['id', 'interface_status', 'status', 'version'],
         messages: {
             success: 'Software Element has been developed successfully!',
-            alreadyExists: 'Software Element has already been developed!',
+        }
+    },
+    'QUALITY_MANAGER-ESTABLISHES-TEST_PLAN': {
+        fields: ['id', 'software_system_id', 'test_type', 'status', 'constraint', 'test_scope', 'assumption', 'risk'],
+        messages: {
+            success: 'Test Plan has been established successfully!',
+            alreadyExists: 'Test Plan has already been established!',
+        }
+    },
+    'QUALITY_MANAGER-DESIGNS-TEST_CASE': {
+        fields: ['id', 'software_element_id', 'level', 'version', 'purpose', 'overview', 'description', 'input', 'expected_output'],
+        messages: {
+            success: 'Test Case has been designed successfully!',
+            alreadyExists: 'Test Case has already been designed!',
+        }
+    },
+    'STAKEHOLDER-DESIGNS-TEST_CASE': {
+        fields: ['id', 'software_element_id', 'level', 'version', 'purpose', 'overview', 'description', 'input', 'expected_output'],
+        messages: {
+            success: 'Test Case has been designed successfully!',
+            alreadyExists: 'Test Case has already been designed!',
         }
     },
 }
@@ -128,6 +148,36 @@ const classConceptsInfo = {
         container: 'softwareSystems',
         attributes: ['id', 'version', 'name', 'programming_language', 'framework', 'environment', 'architecture'],
         attributesNames: ['ID', 'Version', 'Name', 'Programming Language', 'Framework', 'Environment', 'Architecture'],
+    },
+    'USER_STORY': {
+        name: 'User Stories',
+        container: 'userStories',
+        attributes: ['id', 'title', 'description', 'role', 'priority', 'acceptance_criteria', 'note'],
+        attributesNames: ['ID', 'Title', 'Description', 'Role', 'Priority', 'Acceptance Criteria', 'Note'],
+    },
+    'REQUIREMENT': {
+        name: 'Requirements',
+        container: 'requirements',
+        attributes: ['id', 'stakeholder_id', 'user_story_id', 'software_system_id', 'type'],
+        attributesNames: ['ID', 'Stakeholder ID', 'User Story ID', 'Software System ID', 'Type'],
+    },
+    'SOFTWARE_ELEMENT': {
+        name: 'Software Elements',
+        container: 'softwareElements',
+        attributes: ['id', 'name', 'description', 'software_system_id', 'interface_status', 'status', 'version'],
+        attributesNames: ['ID', 'Name', 'Description', 'Software System ID', 'Interface Status', 'Status', 'Version'],
+    },
+    'TEST_PLAN': {
+        name: 'Test Plans',
+        container: 'testPlans',
+        attributes: ['id', 'software_system_id', 'test_type', 'status', 'constraint', 'test_scope', 'assumption', 'risk'],
+        attributesNames: ['ID', 'Software System ID', 'Test Type', 'Status', 'Constraint', 'Test Scope', 'Assumption', 'Risk'],
+    },
+    'TEST_CASE': {
+        name: 'Test Cases',
+        container: 'testCases',
+        attributes: ['id', 'software_element_id', 'level', 'version', 'purpose', 'overview', 'description', 'input', 'expected_output'],
+        attributesNames: ['ID', 'Software System ID', 'Level', 'Version', 'Purpose', 'Overview', 'Description', 'Input', 'Expected Output'],
     },
 }
 
