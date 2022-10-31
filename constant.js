@@ -109,6 +109,13 @@ const dynamicRelationshipsInfo = {
             success: 'Test Case has been executed successfully!',
         }
     },
+    'QUALITY_MANAGER-REPORTS-ERROR': {
+        fields: ['id', 'name', 'software_element_id', 'status', 'description'],
+        messages: {
+            success: 'Error has been reported successfully!',
+            alreadyExists: 'Error has already been reported!',
+        }
+    },
 }
 
 
@@ -183,7 +190,13 @@ const classConceptsInfo = {
         name: 'Test Cases',
         container: 'testCases',
         attributes: ['id', 'software_element_id', 'level', 'version', 'purpose', 'overview', 'description', 'input', 'expected_output', 'start_date', 'end_date', 'result'],
-        attributesNames: ['ID', 'Software System ID', 'Level', 'Version', 'Purpose', 'Overview', 'Description', 'Input', 'Expected Output', 'Start Date', 'End Date', 'Result'],
+        attributesNames: ['ID', 'Software Element ID', 'Level', 'Version', 'Purpose', 'Overview', 'Description', 'Input', 'Expected Output', 'Start Date', 'End Date', 'Result'],
+    },
+    'ERROR': {
+        name: 'Errors',
+        container: 'errors',
+        attributes: ['id', 'name', 'software_element_id', 'status', 'description'],
+        attributesNames: ['ID', 'Name', 'Software Element ID', 'Status', 'Description'],
     },
 }
 

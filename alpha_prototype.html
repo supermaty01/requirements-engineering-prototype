@@ -1012,7 +1012,7 @@
                 <path d="M 517.12 641.88 L 527.04 636.74 L 527.19 646.74 Z" fill="rgb(0, 0, 0)" stroke="rgb(0, 0, 0)"
                     stroke-miterlimit="10" pointer-events="none" />
                 <path d="M 571 656.47 L 707 656.47 L 707 626.47 L 571 626.47 L 571 656.47" fill="#00b0f0"
-                    stroke="#000000" stroke-miterlimit="10" pointer-events="none" />
+                    stroke="#000000" stroke-miterlimit="10" pointer-events="all" class="class-concept" id="TEST_INCIDENT_REPORT" />
                 <g transform="translate(-0.5 -0.5)">
                     <switch>
                         <foreignObject pointer-events="none" width="100%" height="100%"
@@ -3779,7 +3779,7 @@
                     </switch>
                 </g>
                 <path d="M 1080 844.91 L 1162 844.91 L 1162 814.91 L 1080 814.91 L 1080 844.91" fill="#00b0f0"
-                    stroke="#000000" stroke-miterlimit="10" pointer-events="none" />
+                    stroke="#000000" stroke-miterlimit="10" pointer-events="all" class="class-concept" id="ERROR"/>
                 <g transform="translate(-0.5 -0.5)">
                     <switch>
                         <foreignObject pointer-events="none" width="100%" height="100%"
@@ -6370,7 +6370,7 @@
                 <path
                     d="M 1095.36 753.6 L 1145.36 753.6 C 1153.64 753.6 1160.36 746.88 1160.36 738.6 C 1160.36 730.32 1153.64 723.6 1145.36 723.6 L 1095.36 723.6 C 1087.08 723.6 1080.36 730.32 1080.36 738.6 C 1080.36 746.88 1087.08 753.6 1095.36 753.6"
                     fill="#ffff00" stroke="#000000" stroke-width="3" stroke-miterlimit="10" stroke-dasharray="9 9"
-                    pointer-events="none" />
+                    pointer-events="all" class="dynamic-relationship" id="QUALITY_MANAGER-REPORTS-ERROR" />
                 <g transform="translate(-0.5 -0.5)">
                     <switch>
                         <foreignObject pointer-events="none" width="100%" height="100%"
@@ -6542,7 +6542,7 @@
                 <path
                     d="M 866 656.47 L 916 656.47 C 924.28 656.47 931 649.75 931 641.47 C 931 633.19 924.28 626.47 916 626.47 L 866 626.47 C 857.72 626.47 851 633.19 851 641.47 C 851 649.75 857.72 656.47 866 656.47"
                     fill="#ffff00" stroke="#000000" stroke-width="3" stroke-miterlimit="10" stroke-dasharray="9 9"
-                    pointer-events="none" />
+                    pointer-events="all" class="dynamic-relationship" id="QUALITY_ANALYST-MAKES-TEST_INCIDENT_REPORT" />
                 <g transform="translate(-0.5 -0.5)">
                     <switch>
                         <foreignObject pointer-events="none" width="100%" height="100%"
@@ -7921,6 +7921,64 @@
         </div>
     </div>
 </div>
+<div class="modal fade" id="QUALITY_MANAGER-REPORTS-ERROR-modal" tabindex="-1" role="dialog">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Reports Error</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <div class="col-12">
+                        <div class="row mt-2">
+                            <div class="col-6">
+                                <label for="id">ID*</label>
+                                <input type="text" class="form-control" id="id" name="id" required>
+                            </div>
+                            <div class="col-6">
+                                <label for="name">Name*</label>
+                                <input type="text" class="form-control" id="name" name="name" required>
+                            </div>
+                        </div>
+                        <div class="row mt-2">
+                            <div class="col-6">
+                                <label for="software_element_id">Software Element ID*</label>
+                                <select class="form-control" name="software_element_id" id="software_element_id"
+                                    required></select>
+                            </div>
+                            <div class="col-6">
+                                <label for="status">Status*</label>
+                                <select class="form-control" name="status" id="status" required>
+                                    <option value="" selected hidden>Select an option...</option>
+                                    <option value="TO DO">TO DO</option>
+                                    <option value="IN PROGRESS">IN PROGRESS</option>
+                                    <option value="DONE">DONE</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="row mt-2">
+                            <div class="col-6">
+                                <label for="description">Description*</label>
+                                <input type="text" class="form-control" id="description" name="description" required>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer justify-content-between">
+                <button type="button" class="btn btn-danger" data-dismiss="modal">Cancel</button>
+                <div>
+                    <button type="button" class="btn btn-secondary px-3" onclick="clearFields()">Clear</button>
+                    <button type="button" class="btn btn-primary px-3"
+                        onclick="reportError()">Execute</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 <div class="modal fade" id="class-concept-modal" tabindex="-1" role="dialog">
     <div class="modal-dialog modal-lg" role="document">
         <div class="modal-content">
@@ -8195,17 +8253,21 @@
     function establishTestPlan() {
         saveNewItem('QUALITY_MANAGER-ESTABLISHES-TEST_PLAN', 'testPlans');
     }
-
+    
     function stakeholderDesignTestCase() {
         saveNewItem('STAKEHOLDER-DESIGNS-TEST_CASE', 'testCases', {
             designer: 'Stakeholder'
         });
     }
-
+    
     function qualityManagerDesignTestCase() {
         saveNewItem('QUALITY_MANAGER-DESIGNS-TEST_CASE', 'testCases', {
             designer: 'Quality Manager'
         });
+    }
+    
+    function reportError() {
+        saveNewItem('QUALITY_MANAGER-REPORTS-ERROR', 'errors');
     }
 
     // Use cases with additional logic 
