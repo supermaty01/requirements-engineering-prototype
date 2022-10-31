@@ -3832,7 +3832,7 @@
                 <path
                     d="M 1912.5 1580.5 L 1962.5 1580.5 C 1970.78 1580.5 1977.5 1573.78 1977.5 1565.5 C 1977.5 1557.22 1970.78 1550.5 1962.5 1550.5 L 1912.5 1550.5 C 1904.22 1550.5 1897.5 1557.22 1897.5 1565.5 C 1897.5 1573.78 1904.22 1580.5 1912.5 1580.5"
                     fill="#ffff00" stroke="#000000" stroke-width="3" stroke-miterlimit="10" stroke-dasharray="9 9"
-                    pointer-events="none" />
+                    pointer-events="all" class="dynamic-relationship" id="DEVELOPER-FIXES-ERROR" />
                 <g transform="translate(-0.5 -0.5)">
                     <switch>
                         <foreignObject pointer-events="none" width="100%" height="100%"
@@ -8064,6 +8064,57 @@
         </div>
     </div>
 </div>
+<div class="modal fade" id="DEVELOPER-FIXES-ERROR-modal" tabindex="-1" role="dialog">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Fixes Error</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <div class="col-12">
+                        <div class="row mt-2">
+                            <div class="col-6">
+                                <label for="error_id">ID*</label>
+                                <select type="text" class="form-control" id="error_id" name="id" required></select>
+                            </div>
+                            <div class="col-6">
+                                <label for="status">Status*</label>
+                                <select class="form-control" name="status" id="status" required>
+                                    <option value="" selected hidden>Select an option...</option>
+                                    <option value="TO DO">TO DO</option>
+                                    <option value="IN PROGRESS">IN PROGRESS</option>
+                                    <option value="DONE">DONE</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="row mt-2">
+                            <div class="col-6">
+                                <label for="name">Name*</label>
+                                <input type="text" class="form-control" id="name" name="name" required disabled>
+                            </div>
+                            <div class="col-6">
+                                <label for="description">Description*</label>
+                                <input type="text" class="form-control" id="description" name="description" required disabled>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer justify-content-between">
+                <button type="button" class="btn btn-danger" data-dismiss="modal">Cancel</button>
+                <div>
+                    <button type="button" class="btn btn-secondary px-3" onclick="clearFields()">Clear</button>
+                    <button type="button" class="btn btn-primary px-3"
+                        onclick="fixError()">Fix</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 <div class="modal fade" id="class-concept-modal" tabindex="-1" role="dialog">
     <div class="modal-dialog modal-lg" role="document">
         <div class="modal-content">
@@ -8155,11 +8206,13 @@
         const softwareSystems = JSON.parse(localStorage.getItem('softwareSystems'));
         const softwareElements = JSON.parse(localStorage.getItem('softwareElements'));
         const testCases = JSON.parse(localStorage.getItem('testCases'));
+        const errors = JSON.parse(localStorage.getItem('errors'));
 
         let stakeholdersHtml = '<option value="" selected hidden>Select an option...</option>';
         let userStoriesHtml = '<option value="" selected hidden>Select an option...</option>';
         let softwareSystemsHtml = '<option value="" selected hidden>Select an option...</option>';
         let softwareElementsHtml = '<option value="" selected hidden>Select an option...</option>';
+        let errorsHtml = '<option value="" selected hidden>Select an option...</option>';
         let testCasesHtml = '<option value="" selected hidden>Select an option...</option>';
         if (stakeholders && stakeholders.length) {
             stakeholders.forEach((stakeholder) => {
@@ -8189,12 +8242,19 @@
                     `<option value="${testCase.id}">${testCase.id}</option>`;
             });
         }
+        if (errors && errors.length) {
+            errors.forEach((error) => {
+                errorsHtml +=
+                    `<option value="${error.id}">${error.id}</option>`;
+            });
+        }
 
         $(`#${this.id} #stakeholder_id`).html(stakeholdersHtml);
         $(`#${this.id} #user_story_id`).html(userStoriesHtml);
         $(`#${this.id} #software_system_id`).html(softwareSystemsHtml);
         $(`#${this.id} #software_element_id`).html(softwareElementsHtml);
         $(`#${this.id} #test_case_id`).html(testCasesHtml);
+        $(`#${this.id} #error_id`).html(errorsHtml);
     });
 
     // Add value to disabled fields
@@ -8215,6 +8275,13 @@
         $('#QUALITY_ANALYST-EXECUTES-TEST_CASE-modal #input').val(selectedTestCase.input);
         $('#QUALITY_ANALYST-EXECUTES-TEST_CASE-modal #expected_output').val(selectedTestCase.expected_output);
         $('#QUALITY_ANALYST-EXECUTES-TEST_CASE-modal #level').val(selectedTestCase.level);
+    });
+
+    $('#DEVELOPER-FIXES-ERROR-modal #error_id').change(function () {
+        const errors = JSON.parse(localStorage.getItem('errors'));
+        const selectedError = errors.find((obj) => obj.id === $(this).val());
+        $('#DEVELOPER-FIXES-ERROR-modal #name').val(selectedError.name);
+        $('#DEVELOPER-FIXES-ERROR-modal #description').val(selectedError.description);
     });
 
     function clearFields() {
@@ -8442,6 +8509,34 @@
                     return {
                         ...newTestCase,
                         ...obj
+                    };
+                } else {
+                    return obj;
+                }
+            })
+        ));
+        $(`#${relationship}-modal`).modal('hide');
+        clearFields();
+        showSuccess(dynamicRelationshipsInfo[relationship].messages.success);
+    }
+
+    function fixError() {
+        const relationship = 'DEVELOPER-FIXES-ERROR';
+        const invalidFields = checkFields(relationship);
+        if (invalidFields) {
+            return;
+        }
+        const newError = newObject(relationship);
+        // Get list of required items
+        const errors = JSON.parse(localStorage.getItem('errors'));
+
+        const existingTestCase = errors.find((obj) => obj.id === newError.id);
+        localStorage.setItem('errors', JSON.stringify(
+            errors.map((obj) => {
+                if (obj.id === newError.id) {
+                    return {
+                        ...obj,
+                        status: newError.status,
                     };
                 } else {
                     return obj;

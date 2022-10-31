@@ -123,6 +123,12 @@ const dynamicRelationshipsInfo = {
             alreadyExists: 'Test Incident Report has already been made!',
         }
     },
+    'DEVELOPER-FIXES-ERROR': {
+        fields: ['id','status'],
+        messages: {
+            success: 'Error has been fixed successfully!',
+        }
+    },
 }
 
 
