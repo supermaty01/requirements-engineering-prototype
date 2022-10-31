@@ -7979,6 +7979,91 @@
         </div>
     </div>
 </div>
+<div class="modal fade" id="QUALITY_ANALYST-MAKES-TEST_INCIDENT_REPORT-modal" tabindex="-1" role="dialog">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Makes Test Incident Report</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <div class="col-12">
+                        <div class="row mt-2">
+                            <div class="col-6">
+                                <label for="id">ID*</label>
+                                <input type="text" class="form-control" id="id" name="id" required>
+                            </div>
+                            <div class="col-6">
+                                <label for="test_case_id">Test Case ID*</label>
+                                <select class="form-control" name="test_case_id" id="test_case_id"
+                                    required></select>
+                            </div>
+                        </div>
+                        <div class="row mt-2">
+                            <div class="col-6">
+                                <label for="status">Status*</label>
+                                <select class="form-control" name="status" id="status" required>
+                                    <option value="" selected hidden>Select an option...</option>
+                                    <option value="OPEN">OPEN</option>
+                                    <option value="APPROVED FOR RESOLUTION">APPROVED FOR RESOLUTION</option>
+                                    <option value="ASIGNED FOR RESOLUTION">ASIGNED FOR RESOLUTION</option>
+                                    <option value="FIXED">FIXED</option>
+                                    <option value="RETESTED WITH FIX CONFIRMED">RETESTED WITH FIX CONFIRMED</option>
+                                    <option value="CLOSED">CLOSED</option>
+                                </select>
+                            </div>
+                            <div class="col-6">
+                                <label for="description">Description*</label>
+                                <input type="text" class="form-control" id="description" name="description" required>
+                            </div>
+                        </div>
+                        <div class="row mt-2">
+                            <div class="col-6">
+                                <label for="risk">Risk*</label>
+                                <input type="text" class="form-control" id="risk" name="risk" required>
+                            </div>
+                            <div class="col-6">
+                                <label for="context">Context*</label>
+                                <input type="text" class="form-control" id="context" name="context" required>
+                            </div>
+                        </div>
+                        <div class="row mt-2">
+                            <div class="col-6">
+                                <label for="priority">Priority*</label>
+                                <input type="text" class="form-control" id="priority" name="priority" required>
+                            </div>
+                            <div class="col-6">
+                                <label for="time">Time*</label>
+                                <input type="text" class="form-control" id="time" name="time" required>
+                            </div>
+                        </div>
+                        <div class="row mt-2">
+                            <div class="col-6">
+                                <label for="originator">Originator*</label>
+                                <input type="text" class="form-control" id="originator" name="originator" required>
+                            </div>
+                            <div class="col-6">
+                                <label for="severity">Severity*</label>
+                                <input type="text" class="form-control" id="severity" name="severity" required>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer justify-content-between">
+                <button type="button" class="btn btn-danger" data-dismiss="modal">Cancel</button>
+                <div>
+                    <button type="button" class="btn btn-secondary px-3" onclick="clearFields()">Clear</button>
+                    <button type="button" class="btn btn-primary px-3"
+                        onclick="makeTestIncidentReport()">Make</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 <div class="modal fade" id="class-concept-modal" tabindex="-1" role="dialog">
     <div class="modal-dialog modal-lg" role="document">
         <div class="modal-content">
@@ -8268,6 +8353,10 @@
     
     function reportError() {
         saveNewItem('QUALITY_MANAGER-REPORTS-ERROR', 'errors');
+    }
+    
+    function makeTestIncidentReport() {
+        saveNewItem('QUALITY_ANALYST-MAKES-TEST_INCIDENT_REPORT', 'testIncidentReports');
     }
 
     // Use cases with additional logic 

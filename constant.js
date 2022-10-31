@@ -116,6 +116,13 @@ const dynamicRelationshipsInfo = {
             alreadyExists: 'Error has already been reported!',
         }
     },
+    'QUALITY_ANALYST-MAKES-TEST_INCIDENT_REPORT': {
+        fields: ['id', 'test_case_id', 'status', 'description', 'risk', 'context', 'priority', 'time', 'originator', 'severity'],
+        messages: {
+            success: 'Test Incident Report has been made successfully!',
+            alreadyExists: 'Test Incident Report has already been made!',
+        }
+    },
 }
 
 
@@ -197,6 +204,12 @@ const classConceptsInfo = {
         container: 'errors',
         attributes: ['id', 'name', 'software_element_id', 'status', 'description'],
         attributesNames: ['ID', 'Name', 'Software Element ID', 'Status', 'Description'],
+    },
+    'TEST_INCIDENT_REPORT': {
+        name: 'Test Incident Reports',
+        container: 'testIncidentReports',
+        attributes: ['id', 'test_case_id', 'status', 'description', 'risk', 'context', 'priority', 'time', 'originator', 'severity'],
+        attributesNames: ['ID', 'Test Case ID', 'Status', 'Description', 'Risk', 'Context', 'Priority', 'Time', 'Originator', 'Severity'],
     },
 }
 
