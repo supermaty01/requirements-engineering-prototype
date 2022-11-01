@@ -217,6 +217,12 @@ const classConceptsInfo = {
         attributes: ['id', 'test_case_id', 'status', 'description', 'risk', 'context', 'priority', 'time', 'originator', 'severity'],
         attributesNames: ['ID', 'Test Case ID', 'Status', 'Description', 'Risk', 'Context', 'Priority', 'Time', 'Originator', 'Severity'],
     },
+    'ADMINISTRATOR': {
+        name: 'Administrators',
+        container: 'administrators',
+        attributes: ['user', 'password'],
+        attributesNames: ['User', 'Password'],
+    },
 }
 
 const achievementVerbsInfo = {
