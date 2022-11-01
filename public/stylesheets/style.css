@@ -24,6 +24,6 @@ body {
     position: absolute;
 }
 
-.dynamic-relationship, .class-concept, .achievement-verb {
+.dynamic-relationship, .class-concept, .achievement-verb, .event-item {
     cursor: pointer;
 }

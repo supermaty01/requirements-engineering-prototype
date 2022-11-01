@@ -231,3 +231,13 @@ const achievementVerbsInfo = {
     'MAKING-SOFTWARE_ELEMENT': 'MAKING THE SOFTWARE ELEMENT',
 }
 
+const eventResults = {
+    'USER-ARISES': {
+        error: 'No users have arised...',
+        success: 'A new user have arised!',
+    },
+    'TESTING_PHASE-STARTS': {
+        error: 'Testing phase have not started...',
+        success: 'A new testing phase have started!',
+    },
+}
