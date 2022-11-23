@@ -1,5 +1,6 @@
 const dynamicRelationshipsInfo = {
     'PRODUCT_OWNER-DEFINES-USER_STORY': {
+        name: 'Product Owner Defines User Story',
         fields: ['id', 'title', 'description', 'role', 'priority', 'acceptance_criteria', 'note'],
         messages: {
             success: 'User story has been defined successfully!',
@@ -7,6 +8,7 @@ const dynamicRelationshipsInfo = {
         }
     },
     'ADMINISTRATOR-REGISTERS-SOFTWARE_SYSTEM': {
+        name: 'Administrator Registers Software System',
         fields: ['id', 'name'],
         messages: {
             success: 'Software System has been registered successfully!',
@@ -14,6 +16,7 @@ const dynamicRelationshipsInfo = {
         }
     },
     'ADMINISTRATOR-REGISTERS-QUALITY_ANALYST': {
+        name: 'Administrator Registers Quality Analyst',
         fields: ['id', 'name', 'email'],
         messages: {
             success: 'Quality Analyst has been registered successfully!',
@@ -21,6 +24,7 @@ const dynamicRelationshipsInfo = {
         }
     },
     'ADMINISTRATOR-REGISTERS-QUALITY_MANAGER': {
+        name: 'Administrator Registers Quality Manager',
         fields: ['id', 'name', 'email'],
         messages: {
             success: 'Quality Manager has been registered successfully!',
@@ -28,6 +32,7 @@ const dynamicRelationshipsInfo = {
         }
     },
     'ADMINISTRATOR-REGISTERS-DEVELOPER': {
+        name: 'Administrator Registers Developer',
         fields: ['id', 'name', 'email'],
         messages: {
             success: 'Developer has been registered successfully!',
@@ -35,6 +40,7 @@ const dynamicRelationshipsInfo = {
         }
     },
     'ADMINISTRATOR-REGISTERS-SOFTWARE_ARCHITECT': {
+        name: 'Administrator Registers Software Architect',
         fields: ['id', 'name', 'email'],
         messages: {
             success: 'Software Architect has been registered successfully!',
@@ -42,6 +48,7 @@ const dynamicRelationshipsInfo = {
         }
     },
     'ADMINISTRATOR-REGISTERS-PRODUCT_OWNER': {
+        name: 'Administrator Registers Product Owner',
         fields: ['id', 'name', 'email'],
         messages: {
             success: 'Product Owner has been registered successfully!',
@@ -49,6 +56,7 @@ const dynamicRelationshipsInfo = {
         }
     },
     'ADMINISTRATOR-REGISTERS-STAKEHOLDER': {
+        name: 'Administrator Registers Stakeholder',
         fields: ['id', 'name', 'email', 'company_name'],
         messages: {
             success: 'Stakeholder has been registered successfully!',
@@ -56,6 +64,7 @@ const dynamicRelationshipsInfo = {
         }
     },
     'PRODUCT_OWNER-IDENTIFIES-REQUIREMENT': {
+        name: 'Product Owner Identifies Requirement',
         fields: ['id', 'stakeholder_id', 'user_story_id', 'software_system_id', 'type'],
         messages: {
             success: 'Requirement has been identified successfully!',
@@ -63,6 +72,7 @@ const dynamicRelationshipsInfo = {
         }
     },
     'SOFTWARE_ARCHITECT-DESIGNS-SOFTWARE_SYSTEM': {
+        name: 'Software Architect Designs Software System',
         fields: ['id', 'version', 'name', 'programming_language', 'framework', 'environment', 'architecture'],
         messages: {
             success: 'Software System has been designed successfully!',
@@ -70,6 +80,7 @@ const dynamicRelationshipsInfo = {
         }
     },
     'SOFTWARE_ARCHITECT-DEFINES-SOFTWARE_ELEMENT': {
+        name: 'Software Architect Defines Software Element',
         fields: ['id', 'name', 'description', 'software_system_id'],
         messages: {
             success: 'Software Element has been defined successfully!',
@@ -77,12 +88,14 @@ const dynamicRelationshipsInfo = {
         }
     },
     'DEVELOPER-DEVELOPS-SOFTWARE_ELEMENT': {
+        name: 'Developer Develops Software Element',
         fields: ['id', 'interface_status', 'status', 'version'],
         messages: {
             success: 'Software Element has been developed successfully!',
         }
     },
     'QUALITY_MANAGER-ESTABLISHES-TEST_PLAN': {
+        name: 'Quality Manager Establishes Test Plan',
         fields: ['id', 'software_system_id', 'test_type', 'status', 'constraint', 'test_scope', 'assumption', 'risk'],
         messages: {
             success: 'Test Plan has been established successfully!',
@@ -90,6 +103,7 @@ const dynamicRelationshipsInfo = {
         }
     },
     'QUALITY_MANAGER-DESIGNS-TEST_CASE': {
+        name: 'Quality Manager Designs Test Case',
         fields: ['id', 'software_element_id', 'level', 'version', 'purpose', 'overview', 'description', 'input', 'expected_output'],
         messages: {
             success: 'Test Case has been designed successfully!',
@@ -97,6 +111,7 @@ const dynamicRelationshipsInfo = {
         }
     },
     'STAKEHOLDER-DESIGNS-TEST_CASE': {
+        name: 'Stakeholder Designs Test Case',
         fields: ['id', 'software_element_id', 'level', 'version', 'purpose', 'overview', 'description', 'input', 'expected_output'],
         messages: {
             success: 'Test Case has been designed successfully!',
@@ -104,12 +119,14 @@ const dynamicRelationshipsInfo = {
         }
     },
     'QUALITY_ANALYST-EXECUTES-TEST_CASE': {
+        name: 'Quality Analyst Executes Test Case',
         fields: ['id', 'start_date', 'end_date', 'result'],
         messages: {
             success: 'Test Case has been executed successfully!',
         }
     },
-    'QUALITY_MANAGER-REPORTS-ERROR': {
+    'QUALITY_ANALYST-REPORTS-ERROR': {
+        name: 'Quality Analyst Reports Error',
         fields: ['id', 'name', 'software_element_id', 'status', 'description'],
         messages: {
             success: 'Error has been reported successfully!',
@@ -117,6 +134,7 @@ const dynamicRelationshipsInfo = {
         }
     },
     'QUALITY_ANALYST-MAKES-TEST_INCIDENT_REPORT': {
+        name: 'Quality Analyst Makes Test Incident Report',
         fields: ['id', 'test_case_id', 'status', 'description', 'risk', 'context', 'priority', 'time', 'originator', 'severity'],
         messages: {
             success: 'Test Incident Report has been made successfully!',
@@ -124,6 +142,7 @@ const dynamicRelationshipsInfo = {
         }
     },
     'DEVELOPER-FIXES-ERROR': {
+        name: 'Developer Fixes Error',
         fields: ['id','status'],
         messages: {
             success: 'Error has been fixed successfully!',
@@ -237,12 +256,14 @@ const achievementVerbsInfo = {
     'MAKING-SOFTWARE_ELEMENT': 'MAKING THE SOFTWARE ELEMENT',
 }
 
-const eventResults = {
+const eventsInfo = {
     'USER-ARISES': {
+        name: 'User Arises',
         error: 'No users have arised...',
         success: 'A new user have arised!',
     },
     'TESTING_PHASE-STARTS': {
+        name: 'Testing Phase Starts',
         error: 'Testing phase have not started...',
         success: 'A new testing phase have started!',
     },
