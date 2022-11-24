@@ -143,7 +143,7 @@ const dynamicRelationshipsInfo = {
     },
     'DEVELOPER-FIXES-ERROR': {
         name: 'Developer Fixes Error',
-        fields: ['id','status'],
+        fields: ['id', 'status'],
         messages: {
             success: 'Error has been fixed successfully!',
         }
@@ -245,15 +245,15 @@ const classConceptsInfo = {
 }
 
 const achievementVerbsInfo = {
-    'REFINING-SOFTWARE_SYSTEM': 'REFINING SOFTWARE SYSTEM',
-    'FULFILLING-REQUIREMENT': 'FULFILLING THE REQUIREMENT',
-    'MAINTAINING-SOFTWARE_SYSYTEM': 'MANTAINING THE SOFTWARE SYSTEM',
-    'REDUCING-ERROR': 'REDUCING ERROR',
-    'ENSURING-HAS': 'ENSURING THE SOFTWARE ELEMENT HAS TEST CASE',
-    'REFINING-TEST_PLAN': 'REFINING THE TEST PLAN',
-    'ENHANCING-SOFTWARE_ELEMENT': 'ENHANCING THE SOFTWARE ELEMENT',
-    'MAKING-TEST_CASE': 'MAKING THE TEST CASE',
-    'MAKING-SOFTWARE_ELEMENT': 'MAKING THE SOFTWARE ELEMENT',
+    'REFINING-SOFTWARE_SYSTEM': { goal: 'REFINING SOFTWARE SYSTEM', kpi: 'Percentage of test cases passed' },
+    'FULFILLING-REQUIREMENT': { goal: 'FULFILLING THE REQUIREMENT', kpi: 'Percentage of software elements done' },
+    'MAINTAINING-SOFTWARE_SYSTEM': { goal: 'MANTAINING THE SOFTWARE SYSTEM', kpi: 'Percentage of test cases failed' },
+    'REDUCING-ERROR': { goal: 'REDUCING ERROR', kpi: 'Percentage of errors fixed' },
+    'ENSURING-HAS': { goal: 'ENSURING THE SOFTWARE ELEMENT HAS TEST CASE', kpi: 'Average of test cases per software element' },
+    'REFINING-TEST_PLAN': { goal: 'REFINING THE TEST PLAN', kpi: 'Average of test cases per requirement' },
+    'ENHANCING-SOFTWARE_ELEMENT': { goal: 'ENHANCING THE SOFTWARE ELEMENT', kpi: 'Average of test cases passed per software element' },
+    'MAKING-TEST_CASE': { goal: 'MAKING THE TEST CASE', kpi: 'Average of requirements per user story' },
+    'MAKING-SOFTWARE_ELEMENT': { goal: 'MAKING THE SOFTWARE ELEMENT', kpi: 'Average of software elements done per software system' },
 }
 
 const eventsInfo = {
