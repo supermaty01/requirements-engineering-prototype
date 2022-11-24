@@ -8315,7 +8315,7 @@
                 <div class="row justify-content-center">
                     <div class="col-5">
                         <div>
-                            <img id="kpiEquationImage" class="my-1 px-2" width="100%">
+                            <img id="kpiFormulaImage" class="my-1 px-2" width="100%">
                         </div>
                     </div>
                 </div>
@@ -8323,8 +8323,8 @@
                 <div class="row justify-content-center mt-2">
                     <div class="col-10">
                         <div>
-                            <label for="kpiEquationResult" id="kpiName"></label>
-                            <input type="number" class="form-control" name="kpiEquationResult" id="kpiEquationResult"
+                            <label for="kpiFormulaResult" id="kpiName"></label>
+                            <input type="number" class="form-control" name="kpiFormulaResult" id="kpiFormulaResult"
                                 disabled>
                         </div>
                     </div>
@@ -8382,7 +8382,7 @@
     $('.achievement-relationship').dblclick(function () {
         $('#kpi-title').html(achievementVerbsInfo[this.id].goal);
         $('#kpiName').html(achievementVerbsInfo[this.id].kpi);
-        $('#kpiEquationImage').prop('src', `public/assets/kpi-equations/${this.id}.png`).show();
+        $('#kpiFormulaImage').prop('src', `public/assets/kpi-formulas/${this.id}.png`).show();
         const kpiResult = {
             'REFINING-SOFTWARE_SYSTEM': percentageOfTestCasesPassed(),
             'FULFILLING-REQUIREMENT': percentageOfSoftwareElementsDone(),
@@ -8395,7 +8395,7 @@
             'MAKING-SOFTWARE_ELEMENT': averageOfSoftwareElementsDonePerSoftwareSystem(),
         }
 
-        $('#kpiEquationResult').val(kpiResult[this.id]);
+        $('#kpiFormulaResult').val(kpiResult[this.id]);
 
         $('#kpi-modal').modal();
     });
