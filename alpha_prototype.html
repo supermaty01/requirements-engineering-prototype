@@ -8401,11 +8401,20 @@
     });
 
     $('.event-item').dblclick(function () {
-        const randomNumber = Math.random();
-        if (randomNumber >= 0.5) {
-            showError(eventsInfo[this.id].error);
-        } else {
+        let eventOccurs = false;
+        if (this.id === 'TESTING_PHASE-STARTS') {
+            const softwareSystems = JSON.parse(localStorage['softwareSystems']);
+            eventOccurs = softwareSystems.filter((softwareSystem) => softwareSystem.version === '0.0').length >= 1;
+        }
+        if (this.id === 'USER-ARISES') {
+            const probabilty = 0.4;
+            const randomNumber = Math.random();
+            eventOccurs = randomNumber <= probabilty;
+        }
+        if (eventOccurs) {
             showSuccess(eventsInfo[this.id].success);
+        } else {
+            showError(eventsInfo[this.id].error);
         }
     });
 
@@ -8622,7 +8631,9 @@
     }
 
     function registerSoftwareSystem() {
-        saveNewItem('ADMINISTRATOR-REGISTERS-SOFTWARE_SYSTEM', 'softwareSystems');
+        saveNewItem('ADMINISTRATOR-REGISTERS-SOFTWARE_SYSTEM', 'softwareSystems', {
+            version: '0.0'
+        });
     }
 
     function registerQualityAnalyst() {
